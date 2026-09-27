@@ -1,0 +1,120 @@
+# General (Name, Contact Info, Summary)
+general:
+  name: Adam Brodack
+  title: DevOps Engineer
+  location: St. Louis, MO/Chicago, IL
+  contact:
+    email: adam@brodack.net
+    linkedin: adambrodack
+    github: atomicbeast101
+    website: https://adambrodack.com/
+  summary:
+    - DevOps/Network Engineer with capability to build and automate the deployment/management of network and server infrastructure through the use of configuration management and DevOps tools. Highly motivated candidate, with 6+ years of experience holds proficient code writing skills in Python and leverage Ansible tool to automate deployment tasks.
+
+# Work Experience (Ordered by Date Automatically)
+experiences:
+  - company: The Dow Chemical Company
+    roles:
+      - Network DevOps Engineer
+    start: 2019-06
+    end: present
+    location: Midland, MI/St. Louis, MO
+    highlights:
+      - Perform audit of network infrastructure to remove straining costs and revamp tracking of network assets within ServiceNow's CMDB.
+      - "Research and deploy a centralized monitoring tool to monitor Dow's global network using the following tools: Grafana, Prometheus, Ansible, & SolarWinds."
+      - Develop and deploy a web application in Python to form a centralized database for all voice services (phone lines, devices, etc) and keeps them updated via integrations with several voice systems (Cisco Call Managers, E911, invoice management system, SolarWinds, etc.)
+  - company: IP.com, LLC
+    roles:
+      - DevOps Engineer Intern
+    start: 2018-05
+    end: 2019-05
+    location: Rochester, NY
+    highlights:
+      - Maintained existing Grafana/Prometheus monitoring systems.
+      - Deployed an improved version of vmware_exporter Prometheus exporter for the VMware ESXi systems.
+      - Deployed a custom Python-based UPS monitoring application to perform scheduled shutdowns based on UPS's runtime thresholds during power outages.
+      - Assisted co-workers with upgrading and decomissioning server hardware in oﬃce and datacenter locations. Also assisted with planning rack layout designs for the new datacenter and migrating server hardware over to the new location.
+      - Assisted co-worker with upgrading old MySQL cluster to an improved MHA (MySQL High Availability) cluster system.
+      - Performed research on Kubernetes technology and how to apply it to our current infrastructure.
+  - company: Ameren Corporation
+    roles:
+      - Application Developer Intern
+    start: 2017-05
+    end: 2017-08
+    location: St. Louis, MO
+    highlights:
+      - Developed and maintained diﬀerent tools utilized by the company in C# language such as log analyzing, automatic deployment, & certiﬁcate expiration notiﬁcations.
+      - Created a simple database to track SSL certiﬁcations and their expiration dates.
+      - 80% of time was developing C# programs while 20% was developing the database as well as redesigning the web page for the monitoring system.
+
+# Skills
+skills:
+  - category: Systems Administration
+    list:
+      - Ubuntu/CentOS/RedHat Linux
+      - Windows Server
+      - Proxmox VE
+      - VMware ESXi/vSphere
+  - category: Enterprise Applications
+    list:
+      - SolarWinds
+      - Grafana
+      - ServiceNow
+      - PostgreSQL
+  - category: DevOps
+    list:
+      - Azure DevOps
+      - Bicep Templates
+      - Ansible
+      - Docker
+      - Kubernetes
+      - GitHub Actions
+      - Open Source Tools
+  - category: Networking
+    list:
+      - Network Architect Design
+      - Cisco/HP Switches/Routers
+      - Versa SDWAN
+      - INFOBLOX
+      - Palo Alto/Panaroma
+      - VyOS Router
+      - Cradlepoint
+      - Netbox
+  - category: Programming/Scripting
+    list:
+      - Python
+      - Java
+      - JavaScript
+      - Bash
+      - Powershell
+
+# Education
+education:
+  - name: Rochester Institute of Technology
+    degree: Networking & Systems Administration
+    level: BS
+    # graduated: 2019-05
+
+# Projects
+projects:
+  - name: Hydroponics
+    date: 2026-06
+    summary: TODO
+  - name: Homelab
+    start_date: 2017-08
+    end_date: present
+    summary: TODO
+
+# Hobbies
+hobbies:
+  - Camping/Hiking
+  - Gym
+  - Homelab
+  - DIY 3D-Printing/IoT
+  - PC Gaming
+
+# Awards
+awards:
+  - name: Eagle Scout
+    where: Boy Scouts of America
+    when: 05/01/2012
