@@ -42,6 +42,14 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v7
+      
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Generate Authors for Blog
+        run: python site/generate_authors.py --source config.yml --destination site/blog/authors.yml
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -55,8 +63,6 @@ jobs:
       #     key: ${{ runner.os }}-node-${{ hashFiles('./site/package-lock.json') }}
       #     restore-keys: ${{ runner.os }}-node-
 
-      # generate site/blog/authors.yml
-
       # - name: Build Site
       #   run: |
       #     npm ci
@@ -66,7 +72,7 @@ jobs:
       #   uses: actions/upload-artifact@v3
       #   with:
       #     name: site
-      #     path: ???
+      #     path: ./site/build
 
   publish:
     name: Publish
