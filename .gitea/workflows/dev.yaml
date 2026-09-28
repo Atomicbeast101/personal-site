@@ -26,7 +26,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Generate CV Template
-        run: python .gitea/resume/convert_to_cv.py --source config.yml --template resume/template.yml --destination resume/generated.yml
+        run: python resume/convert_to_cv.py --source config.yml --template resume/template.yml --destination resume/generated.yml
 
       - name: Build Resume
         run: rendercv render resume/generated.yml --pdf-path resume/resume.pdf
@@ -37,43 +37,43 @@ jobs:
           name: resume
           path: resume/resume.pdf
 
-  site:
-    name: Generate Site
-    steps: []
-      # - name: Checkout Repo
-      #   uses: actions/checkout@v7
+  # site:
+  #   name: Generate Site
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v7
       
-      # - name: Setup ???
+  #     - name: Setup ???
 
     
-      # # generate site/blog/authors.yml
+  #     # generate site/blog/authors.yml
 
 
-      # - name: Build Site
+  #     - name: Build Site
 
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v7
-      #   with:
-      #     name: site
-      #     path: ???
+  #     - name: Upload Artifact
+  #       uses: actions/upload-artifact@v7
+  #       with:
+  #         name: site
+  #         path: ???
 
-  publish:
-    name: Publish
-    needs:
-      - resume
-      - site
-    steps: []
+  # publish:
+  #   name: Publish
+  #   needs:
+  #     - resume
+  #     - site
+  #   steps: []
 
-      # Upload site artifact to Github pages
-      # Upload resume artifact to Github pages
-
+  #     # Upload site artifact to Github pages
+  #     # Upload resume artifact to Github pages
 
   report:
     name: Report
     if: always()
     continue-on-error: true
     needs:
-      - publish
+      - resume
+      # - publish
     env:
       SUCCESS: ${{ needs.publish.result == 'success' }}
     steps:
