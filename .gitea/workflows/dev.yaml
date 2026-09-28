@@ -52,28 +52,42 @@ jobs:
   #     - name: Build Site
 
   #     - name: Upload Artifact
-  #       uses: actions/upload-artifact@v7
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: site
   #         path: ???
 
-  # publish:
-  #   name: Publish
-  #   needs:
-  #     - resume
-  #     - site
-  #   steps: []
+  publish:
+    name: Publish
+    needs:
+      - resume
+      # - site
+    steps:
+      - name: Download Resume Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: resume
+          path: ./resume
 
-  #     # Upload site artifact to Github pages
-  #     # Upload resume artifact to Github pages
+      - name: DEBUG - Check output
+        run: ls ./resume
+
+      # Upload resume.pdf to Github pages
+
+      # - name: Download Site Artifact
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: site
+      #     path: ./site/public
+
+      # Upload site files to Github pages
 
   report:
     name: Report
     if: always()
     continue-on-error: true
     needs:
-      - resume
-      # - publish
+      - publish
     env:
       SUCCESS: ${{ needs.publish.result == 'success' }}
     steps:
