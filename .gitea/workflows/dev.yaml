@@ -83,27 +83,37 @@ jobs:
       - resume
       - site
     steps:
-      - name: Download Resume Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: resume
-          path: ./resume
-
-      - name: DEBUG - Show output of resume artifact
-        run: ls ./resume
-
-      # Upload resume.pdf to Github pages
-
       - name: Download Site Artifact
         uses: actions/download-artifact@v3
         with:
           name: site
           path: ./site/build
 
-      - name: DEBUG - Show output of resume artifact
-        run: ls ./site/build
+      - name: Upload Resume
+        uses: wangyucode/sftp-upload-action@v3
+        with:
+          host: ${{ vars.SFTP_HOST }}
+          username: ${{ vars.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          localDir: ./site/build
+          remoteDir: ./
+          concurrency: 10
 
-      # Upload site files to Github pages
+      - name: Download Resume Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: resume
+          path: ./resume
+
+      - name: Upload Resume
+        uses: wangyucode/sftp-upload-action@v3
+        with:
+          host: ${{ vars.SFTP_HOST }}
+          username: ${{ vars.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          localDir: ./resume
+          remoteDir: ./
+          concurrency: 1
 
   report:
     name: Report
