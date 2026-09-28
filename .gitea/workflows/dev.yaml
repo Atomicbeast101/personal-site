@@ -6,7 +6,7 @@ on:
 
 env:
   PYTHON_VERSION: 3.12
-  ???_VERSION: 
+  # ???_VERSION: 
 
 jobs:
   resume:
@@ -39,34 +39,33 @@ jobs:
 
   site:
     name: Generate Site
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v7
+    steps: []
+      # - name: Checkout Repo
+      #   uses: actions/checkout@v7
       
-      - name: Setup ???
+      # - name: Setup ???
 
     
-      # generate site/blog/authors.yml
+      # # generate site/blog/authors.yml
 
 
-      - name: Build Site
+      # - name: Build Site
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: site
-          path: ???
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v7
+      #   with:
+      #     name: site
+      #     path: ???
 
   publish:
     name: Publish
     needs:
       - resume
       - site
-    steps:
+    steps: []
 
       # Upload site artifact to Github pages
       # Upload resume artifact to Github pages
-
 
 
   report:
