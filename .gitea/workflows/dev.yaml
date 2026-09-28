@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
       
-      - name: Install Dependencies
+      - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f resume/requirements.txt ]; then pip install -r resume/requirements.txt; fi
@@ -48,6 +48,11 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
       
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f resume/requirements.txt ]; then pip install -r resume/requirements.txt; fi
+      
       - name: Generate Authors for Blog
         run: python site/generate_authors.py --source config.yml --destination site/blog/authors.yml
 
@@ -56,23 +61,21 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      # - name: Cache Dependencies
-      #   uses: actions/cache@v5
-      #   with:
-      #     path: ./site/.npm
-      #     key: ${{ runner.os }}-node-${{ hashFiles('./site/package-lock.json') }}
-      #     restore-keys: ${{ runner.os }}-node-
+      - name: Install Node Dependencies
+        run: |
+          cd site
+          npm ci
 
-      # - name: Build Site
-      #   run: |
-      #     npm ci
-      #     npm run build
+      - name: Build Site
+        run: |
+          cd site
+          npm run build
 
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: site
-      #     path: ./site/build
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: ./site/build
 
   publish:
     name: Publish
