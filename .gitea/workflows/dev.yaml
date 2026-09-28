@@ -23,19 +23,19 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f resume/requirements.txt ]; then pip install -r resume/requirements.txt; fi
+          if [ -f ./resume/requirements.txt ]; then pip install -r ./resume/requirements.txt; fi
 
       - name: Generate CV Template
-        run: python resume/convert_to_cv.py --source config.yml --template resume/template.yml --destination resume/generated.yml
+        run: python ./resume/convert_to_cv.py --source config.yml --template ./resume/template.yml --destination ./resume/generated.yml
 
       - name: Build Resume
-        run: rendercv render resume/generated.yml --pdf-path resume.pdf
+        run: rendercv render ./resume/generated.yml --pdf-path ./resume/resume.pdf
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: resume
-          path: resume/resume.pdf
+          path: ./resume/resume.pdf
 
   # site:
   #   name: Generate Site
@@ -69,10 +69,7 @@ jobs:
           name: resume
           path: ./resume
 
-      - name: DEBUG - Check output
-        run: ls ./resume
-
-      # Upload resume.pdf to Github pages
+      # Upload ./resume/resume.pdf to Github pages
 
       # - name: Download Site Artifact
       #   uses: actions/download-artifact@v3
