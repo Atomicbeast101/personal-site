@@ -51,7 +51,7 @@ jobs:
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f resume/requirements.txt ]; then pip install -r resume/requirements.txt; fi
+          if [ -f site/requirements.txt ]; then pip install -r site/requirements.txt; fi
       
       - name: Generate Authors for Blog
         run: python site/generate_authors.py --source config.yml --destination site/blog/authors.yml
@@ -89,13 +89,19 @@ jobs:
           name: resume
           path: ./resume
 
+      - name: DEBUG - Show output of resume artifact
+        run: ls ./resume
+
       # Upload resume.pdf to Github pages
 
-      # - name: Download Site Artifact
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: site
-      #     path: ./site/public
+      - name: Download Site Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: site
+          path: ./site/build
+
+      - name: DEBUG - Show output of resume artifact
+        run: ls ./site/build
 
       # Upload site files to Github pages
 
