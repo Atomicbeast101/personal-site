@@ -6,7 +6,7 @@ on:
 
 env:
   PYTHON_VERSION: 3.12
-  # ???_VERSION: 
+  NODE_VERSION: 26.9.0
 
 jobs:
   resume:
@@ -37,31 +37,41 @@ jobs:
           name: resume
           path: ./resume/resume.pdf
 
-  # site:
-  #   name: Generate Site
-  #   steps:
-  #     - name: Checkout Repo
-  #       uses: actions/checkout@v7
-      
-  #     - name: Setup ???
+  site:
+    name: Generate Site
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v7
 
-    
-  #     # generate site/blog/authors.yml
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
+      - name: Cache Dependencies
+        uses: actions/cache@v5
+        with:
+          key: ${{ runner.os }}-node-${{ hashFiles('./site/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
 
-  #     - name: Build Site
+      # generate site/blog/authors.yml
 
-  #     - name: Upload Artifact
-  #       uses: actions/upload-artifact@v3
-  #       with:
-  #         name: site
-  #         path: ???
+      # - name: Build Site
+      #   run: |
+      #     npm ci
+      #     npm run build
+
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: site
+      #     path: ???
 
   publish:
     name: Publish
     needs:
       - resume
-      # - site
+      - site
     steps:
       - name: Download Resume Artifact
         uses: actions/download-artifact@v3
