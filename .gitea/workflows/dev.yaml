@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f resume/requirements.txt ]; then pip install -r resume/requirements.txt; fi
 
       - name: Generate CV Template
         run: python resume/convert_to_cv.py --source config.yml --template resume/template.yml --destination resume/generated.yml
