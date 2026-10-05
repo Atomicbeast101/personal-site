@@ -62,7 +62,7 @@ jobs:
       - name: Build Site
         uses: jakejarvis/hugo-build-action@master
         with:
-          args: --configDir site --minify --buildDrafts
+          args: --configDir site
 
       - name: Debug
         run: ls ./site/public
