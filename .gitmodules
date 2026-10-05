@@ -1,3 +1,9 @@
 [submodule "site/themes/blist"]
 	path = site/themes/blist
 	url = https://github.com/apvarun/blist-hugo-theme.git
+[submodule "site/themes/hugo-noir"]
+	path = site/themes/hugo-noir
+	url = https://github.com/prxshetty/hugo-noir.git
+[submodule "site2/themes/hugo-noir"]
+	path = site2/themes/hugo-noir
+	url = https://github.com/prxshetty/hugo-noir.git

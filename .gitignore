@@ -1,3 +1,14 @@
+# Resume
+.venv
 resume/generated.yml
 resume/rendercv_output
 resume/*.pdf
+site/content/resume.pdf
+
+# Site
+site/data/en/*.yml
+site/public
+
+
+# Temp
+site__OLD

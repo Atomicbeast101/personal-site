@@ -1,0 +1,29 @@
+baseURL = "https://adambrodack.com"
+languageCode = 'en-us'
+title = 'Adam Brodack'
+theme = 'hugo-noir'
+
+# URL handling
+relativeURLs = true
+canonifyURLs = true
+
+# Taxonomy configuration
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Main menu (used as a fallback if language-specific menus are not fully defined or if not using multilingual features)
+# For multilingual sites, it's generally better to define menus within each language block as shown above.
+[menu]
+  [[menu.main]]
+    name = "Experience"
+    pageRef = "/experience"
+    weight = 1
+  [[menu.main]]
+    name = "Projects"
+    pageRef = "/projects"
+    weight = 2
+  [[menu.main]]
+    name = "Resume"
+    url = "/resume.pdf"
+    weight = 3

@@ -6,7 +6,7 @@ on:
 
 env:
   PYTHON_VERSION: 3.12
-  NODE_VERSION: 26.9.0
+  HUGO_VERSION: 0.167.0
 
 jobs:
   resume:
@@ -42,7 +42,7 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v7
-      
+
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
@@ -53,29 +53,19 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f site/requirements.txt ]; then pip install -r site/requirements.txt; fi
       
-      - name: Generate Authors for Blog
-        run: python site/generate_authors.py --source config.yml --destination site/blog/authors.yml
-
-      - name: Setup Node
-        uses: actions/setup-node@v7
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Install Node Dependencies
-        run: |
-          cd site
-          npm ci
+      - name: Generate Content
+        run: python site/generate_content.py --source config.yml --destination site/data/en
 
       - name: Build Site
-        run: |
-          cd site
-          npm run build
+        uses: jakejarvis/hugo-build-action@master
+        with:
+          args: --configDir site --minify --buildDrafts
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: site
-          path: ./site/build
+          path: ./site/public
 
   publish:
     name: Publish
@@ -87,15 +77,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: site
-          path: ./site/build
+          path: ./site/public
 
-      - name: Upload Resume
+      - name: Upload Site
         uses: wangyucode/sftp-upload-action@v3
         with:
           host: ${{ vars.SFTP_HOST }}
           username: ${{ vars.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          localDir: ./site/build
+          localDir: ./site/public
           remoteDir: ./
           concurrency: 10
 

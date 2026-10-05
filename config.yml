@@ -4,7 +4,7 @@ general:
   title: DevOps Engineer
   location: St. Louis, MO/Chicago, IL
   contact:
-    email: adam@brodack.net
+    email: contact@brodack.net
     linkedin: adambrodack
     github: atomicbeast101
     website: https://adambrodack.com/
@@ -33,60 +33,100 @@ experiences:
       - Maintained existing Grafana/Prometheus monitoring systems.
       - Deployed an improved version of vmware_exporter Prometheus exporter for the VMware ESXi systems.
       - Deployed a custom Python-based UPS monitoring application to perform scheduled shutdowns based on UPS's runtime thresholds during power outages.
-      - Assisted co-workers with upgrading and decomissioning server hardware in oﬃce and datacenter locations. Also assisted with planning rack layout designs for the new datacenter and migrating server hardware over to the new location.
+      - Assisted co-workers with upgrading and decomissioning server hardware in office and datacenter locations. Also assisted with planning rack layout designs for the new datacenter and migrating server hardware over to the new location.
       - Assisted co-worker with upgrading old MySQL cluster to an improved MHA (MySQL High Availability) cluster system.
       - Performed research on Kubernetes technology and how to apply it to our current infrastructure.
   - company: Ameren Corporation
     roles:
-      - Application Developer Intern
+      - App Developer Intern
     start: 2017-05
     end: 2017-08
     location: St. Louis, MO
     highlights:
-      - Developed and maintained diﬀerent tools utilized by the company in C# language such as log analyzing, automatic deployment, & certiﬁcate expiration notiﬁcations.
-      - Created a simple database to track SSL certiﬁcations and their expiration dates.
+      - Developed and maintained different tools utilized by the company in C# language such as log analyzing, automatic deployment, & certificate expiration notifications.
+      - Created a simple database to track SSL certifications and their expiration dates.
       - 80% of time was developing C# programs while 20% was developing the database as well as redesigning the web page for the monitoring system.
+
+# Volunteering
+volunteering:
+  - role: Development Committee
+    organization: St. Joseph Hearing + Speech
+    period: 2024 - Present
+    description: Worked with team to develop plans to fundraise money to help run programs for Deaf & Hard-of-Hearing students locally and globally via remote services at St. Joseph.
+  - role: RIT/NTID Part-Time Recruiter
+    organization: Dow Chemical
+    period: 2021 - Present
+    description: Involved in recruiting Deaf/Hard-of-Hearing students from RIT/NTID to join internship or full-time positions at Dow Chemical.
 
 # Skills
 skills:
   - category: Systems Administration
+    section: 1
     list:
-      - Ubuntu/CentOS/RedHat Linux
-      - Windows Server
-      - Proxmox VE
-      - VMware ESXi/vSphere
+      - name: Windows
+        icon: devicon-windows11-original
+      - name: Linux
+        icon: devicon-linux-plain
+      - name: Proxmox VE
+        icon: devicon-proxmox-plain-wordmark
+      - name: VMware vSphere
+        icon: devicon-vsphere-plain
+      - name: Hyper-V
+        icon: devicon-hyperv-original-wordmark
   - category: Enterprise Applications
+    section: 1
     list:
-      - SolarWinds
-      - Grafana
-      - ServiceNow
-      - PostgreSQL
-  - category: DevOps
-    list:
-      - Azure DevOps
-      - Bicep Templates
-      - Ansible
-      - Docker
-      - Kubernetes
-      - GitHub Actions
-      - Open Source Tools
+      - name: SolarWinds
+        icon: null
+      - name: Grafana
+        icon: null
+      - name: Netbox
+        icon: null
+      - name: Palo Alto
+        icon: null
+      - name: ServiceNow
+        icon: null
+      - name: Cisco ThousandEyes
+        icon: null
+      - name: PostgreSQL
+        icon: devicon-postgresql-plain
   - category: Networking
+    section: 1
     list:
-      - Network Architect Design
-      - Cisco/HP Switches/Routers
-      - Versa SDWAN
-      - INFOBLOX
-      - Palo Alto/Panaroma
-      - VyOS Router
-      - Cradlepoint
-      - Netbox
+      - name: Cisco Switches/Routers
+        icon: null
+      - name: HP Switches
+        icon: null
+      - name: Palo Alto
+        icon: null
+      - name: Cradlepoint
+        icon: null
+  - category: DevOps
+    section: 2
+    list:
+      - name: Azure DevOps
+        icon: devicon-azuredevops-plain
+      - name: GitHub Actions
+        icon: devicon-githubactions-plain
+      - name: Ansible
+        icon: devicon-ansible-plain
+      - name: Docker
+        icon: devicon-docker-plain
+      - name: Kubernetes
+        icon: devicon-kubernetes-plain
   - category: Programming/Scripting
+    section: 2
     list:
-      - Python
-      - Java
-      - JavaScript
-      - Bash
-      - Powershell
+      - name: Python
+        icon: devicon-python-plain
+      - name: Java
+        icon: devicon-java-plain
+      - name: C#
+        icon: devicon-csharp-plain
+      - name: JavaScript
+        icon: devicon-javascript-plain
+      - name: Bash
+        icon: devicon-bash-plain
 
 # Education
 education:
@@ -99,11 +139,30 @@ education:
 projects:
   - name: Hydroponics
     date: 2026-06
-    summary: TODO
+    tech: IoT Monitoring, ESPHome, Home-Assistant
+    link: null
+    summary: TODO_HERE
+  - name: Personal Site
+    date: 2026-10
+    tech: GitHub CI/CD, Hugo, Python
+    link: https://github.com/atomicbeast101/personal-site
+    summary: TODO_HERE
   - name: Homelab
     start_date: 2017-08
     end_date: present
-    summary: TODO
+    tech: Ansible, TalosOS (Kubernetes), Ubiquiti
+    link: null
+    summary: TODO_HERE
+  - name: Smart Doorbell
+    date: 2024-10
+    tech: PCB Design, ESPHome, Home-Assistant
+    link: https://github.com/Atomicbeast101/smart-doorbell
+    summary: A KiCad-designed smart doorbell PCB that utilizes the existing doorbell transformer to power the board, the doorbell button wiring to detect actions, and controls the chime.
+  - name: Home Automation
+    date: 2024-10
+    tech: ESPHome, Home-Assistant
+    link: null
+    summary: null
 
 # Hobbies
 hobbies:
@@ -118,3 +177,8 @@ awards:
   - name: Eagle Scout
     where: Boy Scouts of America
     when: 05/01/2012
+
+certifications: []
+  # - name: Example
+  #   when: 12/01/2024
+  #   url: https://example.com/

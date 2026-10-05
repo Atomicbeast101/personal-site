@@ -1,11 +1,18 @@
 #!/bin/bash
 
-# Prepare
-echo "Preparing content..."
-## Generate blog/authors.yml
-python site/generate_authors.py --source config.yml --destination site/blog/authors.yml
+# Cleanup
+rm -rf .venv
 
-# Host site
-echo "Starting site..."
-cd site
-npm run start -- --no-open
+# Setup
+python3 -m venv .venv
+.venv/bin/pip install -r resume/requirements.txt
+.venv/bin/pip install -r site/requirements.txt
+
+# Generate resume
+.venv/bin/python resume/convert_to_cv.py --source config.yml --template resume/template.yml --destination resume/generated.yml
+.venv/bin/rendercv render resume/generated.yml --pdf-path resume.pdf
+cp resume/resume.pdf site/content/resume.pdf
+
+# # Run hugo site
+.venv/bin/python site/generate_content.py --source config.yml --destination site/data/en
+hugo server -s site

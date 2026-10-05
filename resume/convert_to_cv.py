@@ -53,7 +53,7 @@ def main():
     for skill in data['skills']:
         template['cv']['sections']['skills'].append({
             'label': skill['category'],
-            'details': ', '.join(skill['list'])
+            'details': ', '.join([x['name'] for x in skill['list']])
         })
     #### Experience
     for experience in data['experiences']:
