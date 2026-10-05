@@ -53,6 +53,9 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f site/requirements.txt ]; then pip install -r site/requirements.txt; fi
       
+      - name: Create Missing Directory
+        run: mkdir -p site/data/en
+
       - name: Generate Content
         run: python site/generate_content.py --source config.yml --destination site/data/en
 
