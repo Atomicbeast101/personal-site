@@ -64,6 +64,9 @@ jobs:
         with:
           args: --configDir site --minify --buildDrafts
 
+      - name: Debug
+        run: ls ./site/public
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
