@@ -62,10 +62,10 @@ jobs:
       - name: Build Site
         uses: jakejarvis/hugo-build-action@master
         with:
-          args: --configDir site
+          args: --configDir site --minify --buildDrafts
 
       - name: Debug
-        run: ls ./site/public
+        run: ls ./public
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
