@@ -80,33 +80,26 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: site
-          path: ./site/public
-
-      - name: Upload Site
-        uses: Dylan700/sftp-upload-action@latest
-        with:
-          server: ${{ vars.SFTP_HOST }}
-          username: ${{ vars.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: 22
-          uploads: |
-            ./site/public => ./
+          path: ./site
 
       - name: Download Resume Artifact
         uses: actions/download-artifact@v3
         with:
           name: resume
-          path: ./resume
+          path: ./
 
-      - name: Upload Resume
-        uses: wangyucode/sftp-upload-action@v3
-        with:
-          server: ${{ vars.SFTP_HOST }}
-          username: ${{ vars.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: 22
-          uploads: |
-            ./resume/resume.pdf => ./
+      - name: Debug
+        run: ls ./
+
+      # - name: Upload to SFTP Server
+      #   uses: wangyucode/sftp-upload-action@v3
+      #   with:
+      #     server: ${{ vars.SFTP_HOST }}
+      #     username: ${{ vars.SFTP_USERNAME }}
+      #     password: ${{ secrets.SFTP_PASSWORD }}
+      #     port: 22
+      #     uploads: |
+      #       ./ => ./
 
   report:
     name: Report
