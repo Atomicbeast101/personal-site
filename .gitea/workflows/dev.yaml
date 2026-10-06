@@ -64,14 +64,11 @@ jobs:
         with:
           args: --configDir site --minify --buildDrafts
 
-      - name: Debug
-        run: ls ./public
-
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: site
-          path: ./site/public
+          path: ./public
 
   publish:
     name: Publish
