@@ -83,14 +83,14 @@ jobs:
           path: ./site/public
 
       - name: Upload Site
-        uses: wangyucode/sftp-upload-action@v3
+        uses: Dylan700/sftp-upload-action@latest
         with:
-          host: ${{ vars.SFTP_HOST }}
+          server: ${{ vars.SFTP_HOST }}
           username: ${{ vars.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          localDir: ./site/public
-          remoteDir: ./
-          concurrency: 10
+          port: 22
+          uploads: |
+            ./site/public => ./
 
       - name: Download Resume Artifact
         uses: actions/download-artifact@v3
@@ -101,12 +101,12 @@ jobs:
       - name: Upload Resume
         uses: wangyucode/sftp-upload-action@v3
         with:
-          host: ${{ vars.SFTP_HOST }}
+          server: ${{ vars.SFTP_HOST }}
           username: ${{ vars.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          localDir: ./resume
-          remoteDir: ./
-          concurrency: 1
+          port: 22
+          uploads: |
+            ./resume/resume.pdf => ./
 
   report:
     name: Report
