@@ -110,7 +110,7 @@ jobs:
           username: ${{ vars.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 2022
-          dry-run: true
+          concurrency: 10
           uploads: |
             ./ => ./
 
