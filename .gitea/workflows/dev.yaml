@@ -76,6 +76,18 @@ jobs:
       - resume
       - site
     steps:
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Create Python Virtual Environment
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
+          echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
+
       - name: Download Site Artifact
         uses: actions/download-artifact@v3
         with:
