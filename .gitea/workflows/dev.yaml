@@ -91,15 +91,15 @@ jobs:
       - name: Debug
         run: ls ./
 
-      # - name: Upload to SFTP Server
-      #   uses: wangyucode/sftp-upload-action@v3
-      #   with:
-      #     server: ${{ vars.SFTP_HOST }}
-      #     username: ${{ vars.SFTP_USERNAME }}
-      #     password: ${{ secrets.SFTP_PASSWORD }}
-      #     port: 22
-      #     uploads: |
-      #       ./ => ./
+      - name: Upload to SFTP Server
+        uses: wangyucode/sftp-upload-action@v3
+        with:
+          server: ${{ vars.SFTP_HOST }}
+          username: ${{ vars.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: 2022
+          uploads: |
+            ./ => ./
 
   report:
     name: Report
