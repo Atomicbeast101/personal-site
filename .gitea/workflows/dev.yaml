@@ -112,7 +112,7 @@ jobs:
           port: 2022
           concurrency: 5
           uploads: |
-            ./ => ./
+            ./ => ./upload
 
   report:
     name: Report
