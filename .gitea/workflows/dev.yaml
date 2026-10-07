@@ -106,12 +106,13 @@ jobs:
       - name: Upload to SFTP Server
         uses: wangyucode/sftp-upload-action@v3
         with:
-          server: ${{ vars.SFTP_HOST }}
+          host: ${{ vars.SFTP_HOST }}
           username: ${{ vars.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 2022
-          uploads: |
-            ./ => ./
+          localDir: ./
+          remoteDir: ./
+          concurrency: 10
 
   report:
     name: Report
