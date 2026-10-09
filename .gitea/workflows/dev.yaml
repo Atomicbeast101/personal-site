@@ -76,23 +76,28 @@ jobs:
       - resume
       - site
     steps:
-      - name: Create Build Directory
-        run: mkdir ./build
-
       - name: Download Site Artifact
         uses: actions/download-artifact@v3
         with:
           name: site
-          path: ./build
+          path: ./
 
       - name: Download Resume Artifact
         uses: actions/download-artifact@v3
         with:
           name: resume
-          path: ./build
+          path: ./
 
-      - name: Debug
-        run: ls ./build
+      - name: Upload to SFTP Server
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{ vars.SFTP_HOST }}
+          username: ${{ vars.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: 22
+          concurrency: 5
+          uploads: |
+            ./ => ./web
 
   report:
     name: Report
