@@ -76,43 +76,23 @@ jobs:
       - resume
       - site
     steps:
-      # - name: Setup Python
-      #   uses: actions/setup-python@v7
-      #   with:
-      #     python-version: ${{ env.PYTHON_VERSION }}
-
-      # - name: Create Python Virtual Environment
-      #   run: |
-      #     python -m venv .venv
-      #     source .venv/bin/activate
-      #     echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
-      #     echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
+      - name: Create Build Directory
+        run: mkdir ./build
 
       - name: Download Site Artifact
         uses: actions/download-artifact@v3
         with:
           name: site
-          path: ./
+          path: ./build
 
       - name: Download Resume Artifact
         uses: actions/download-artifact@v3
         with:
           name: resume
-          path: ./
+          path: ./build
 
       - name: Debug
-        run: ls ./
-
-      - name: Upload to SFTP Server
-        uses: Dylan700/sftp-upload-action@latest
-        with:
-          server: ${{ vars.SFTP_HOST }}
-          username: ${{ vars.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: 2022
-          concurrency: 5
-          uploads: |
-            ./ => ./upload
+        run: ls ./build
 
   report:
     name: Report
