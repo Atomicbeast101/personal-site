@@ -2,7 +2,7 @@ name: Build/Publish to PROD environment
 on:
   push:
     branches:
-      - dev
+      - main
 
 env:
   PYTHON_VERSION: 3.12
