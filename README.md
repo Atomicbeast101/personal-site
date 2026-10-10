@@ -1,13 +1,18 @@
 # Personal Site
-YAML-driven personal site and resume with automated generation using Python, RenderCV, Hugo, and a DevOps CI/CD pipeline.
+Automated personal website and resume generation using YAML, Hugo, RenderCV, and CI/CD pipelines to maintain a single source of truth and streamline builds and deployment.
 
-## How it Works
-TODO
+## Technology
 
-## Technology Used
-* Gitea Actions
-* [RenderCV]()
-* [Hugo]() with [Blist]() theme
+* Gitea Runner (CI/CD)
+* [RenderCV](https://rendercv.com/)
+* [Hugo](https://gohugo.io/) with [hugo-noir](https://github.com/prxshetty/hugo-noir) theme
 
-## Diagram
-TODO
+## Update Guide
+
+1) Make changes to `config.yml` file to apply to both personal site and resume.
+2) Run `bash build.sh` to build Python virtual environment if not done before.
+3) Run `bash run.sh` to build the resume and website. URL can be accessed here: [http://localhost:1313/](http://localhost:1313/)
+
+## CI/CD Pipeline
+
+TODO_IMAGE_HERE
