@@ -88,16 +88,7 @@ jobs:
           name: resume
           path: ./
 
-      - name: Upload to SFTP Server
-        uses: Dylan700/sftp-upload-action@latest
-        with:
-          server: ${{ vars.SFTP_HOST }}
-          username: ${{ vars.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: 22
-          concurrency: 5
-          uploads: |
-            ./ => ./web
+      # TODO: Figure out good solution to host it at test.adambrodack.com
 
   report:
     name: Report
