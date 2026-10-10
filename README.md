@@ -3,7 +3,7 @@ Automated personal website and resume generation using YAML, Hugo, RenderCV, and
 
 ## Technology
 
-* Gitea Runner (CI/CD)
+* [Gitea Runner](https://docs.gitea.com/runner/) (CI/CD)
 * [RenderCV](https://rendercv.com/)
 * [Hugo](https://gohugo.io/) with [hugo-noir](https://github.com/prxshetty/hugo-noir) theme
 
