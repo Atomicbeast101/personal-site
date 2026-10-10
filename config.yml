@@ -1,7 +1,7 @@
 # General (Name, Contact Info, Summary)
 general:
   name: Adam Brodack
-  title: DevOps Engineer
+  title: Network DevOps Engineer
   location: St. Louis, MO/Chicago, IL
   contact:
     email: contact@brodack.net
@@ -9,7 +9,7 @@ general:
     github: atomicbeast101
     website: https://adambrodack.com/
   summary:
-    - DevOps/Network Engineer with capability to build and automate the deployment/management of network and server infrastructure through the use of configuration management and DevOps tools. Highly motivated candidate, with 6+ years of experience holds proficient code writing skills in Python and leverage Ansible tool to automate deployment tasks.
+    - Network/DevOps Engineer specializing in automating the deployment, configuration, and management of network and application infrastructure using DevOps tools and configuration management solutions.
 
 # Work Experience (Ordered by Date Automatically)
 experiences:
@@ -20,22 +20,24 @@ experiences:
     end: present
     location: Midland, MI/St. Louis, MO
     highlights:
-      - Perform audit of network infrastructure to remove straining costs and revamp tracking of network assets within ServiceNow's CMDB.
-      - "Research and deploy a centralized monitoring tool to monitor Dow's global network using the following tools: Grafana, Prometheus, Ansible, & SolarWinds."
-      - Develop and deploy a web application in Python to form a centralized database for all voice services (phone lines, devices, etc) and keeps them updated via integrations with several voice systems (Cisco Call Managers, E911, invoice management system, SolarWinds, etc.)
+      - Helped develop an AI-powered troubleshooting assistant that streamlined network security investigations and improved end-user support efficiency.
+      - Streamlined network operations and implemented automation across WAN, VPN, and voice services by leveraging NetBox as a centralized network source of truth.
+      - Developed and maintained applications to support daily operations, leveraging Cisco technologies and internally developed solutions.
+      - Enhanced asset management processes to improve the accuracy, reliability, and reporting of network asset valuations.
+      - "Research and deploy a centralized monitoring tool to monitor Dow's global network using the following solutions: Grafana & SolarWinds."
   - company: IP.com, LLC
     roles:
-      - DevOps Engineer Intern
+      - DevOps Engineer Intern/Part-Time
     start: 2018-05
     end: 2019-05
     location: Rochester, NY
     highlights:
-      - Maintained existing Grafana/Prometheus monitoring systems.
-      - Deployed an improved version of vmware_exporter Prometheus exporter for the VMware ESXi systems.
-      - Deployed a custom Python-based UPS monitoring application to perform scheduled shutdowns based on UPS's runtime thresholds during power outages.
-      - Assisted co-workers with upgrading and decomissioning server hardware in office and datacenter locations. Also assisted with planning rack layout designs for the new datacenter and migrating server hardware over to the new location.
-      - Assisted co-worker with upgrading old MySQL cluster to an improved MHA (MySQL High Availability) cluster system.
-      - Performed research on Kubernetes technology and how to apply it to our current infrastructure.
+      - Maintained and supported Grafana and Prometheus monitoring systems to ensure infrastructure visibility and operational reliability.
+      - Deployed an enhanced version of the Prometheus vmware_exporter to improve monitoring capabilities for VMware ESXi environments.
+      - Developed and deployed a custom Python-based UPS monitoring application that automated server shutdowns based on UPS runtime thresholds during power outages.
+      - Supported server hardware upgrades and decommissioning across office and datacenter environments. Contributed to new datacenter planning, rack layout design, and server hardware migration to the new facility.
+      - Assisted in migrating a legacy MySQL cluster to an enhanced MySQL High Availability (MHA) architecture to improve database resilience and availability.
+      - Researched Kubernetes technology and evaluated its potential applications within existing infrastructure to identify opportunities for containerization and infrastructure modernization.
   - company: Ameren Corporation
     roles:
       - App Developer Intern
@@ -43,9 +45,9 @@ experiences:
     end: 2017-08
     location: St. Louis, MO
     highlights:
-      - Developed and maintained different tools utilized by the company in C# language such as log analyzing, automatic deployment, & certificate expiration notifications.
-      - Created a simple database to track SSL certifications and their expiration dates.
-      - 80% of time was developing C# programs while 20% was developing the database as well as redesigning the web page for the monitoring system.
+      - Developed and maintained C# applications to support business operations, including log analysis, automated deployments, and SSL/TLS certificate expiration notifications.
+      - Designed and implemented a database to track SSL/TLS certificates and monitor expiration dates, improving certificate lifecycle management.
+      - Focused approximately 80% of development efforts on C# application development and 20% on database development and redesigning the monitoring system's web interface.
 
 # Volunteering
 volunteering:
@@ -138,21 +140,16 @@ education:
 # Projects
 projects:
   - name: Hydroponics
-    date: 2026-06
+    start: 2026-06
+    end_date: present
     tech: IoT Monitoring, ESPHome, Home-Assistant
     link: null
-    summary: TODO_HERE
+    summary: Designed and built a 3D-printed hydroponics tower for growing edible plants, integrating ESPHome-based automation to control grow lights, water pumps, and ventilation fans. Implemented sensor monitoring for temperature, CO₂, pH, and total dissolved solids (TDS) to support plant health and optimize growing conditions.
   - name: Personal Site
     date: 2026-10
-    tech: GitHub CI/CD, Hugo, Python
+    tech: Bash, Gitea (GitHub) CI/CD, Hugo, Python
     link: https://github.com/atomicbeast101/personal-site
-    summary: TODO_HERE
-  - name: Homelab
-    start_date: 2017-08
-    end_date: present
-    tech: Ansible, TalosOS (Kubernetes), Ubiquiti
-    link: null
-    summary: TODO_HERE
+    summary: Developed a YAML-driven automation pipeline to generate and deploy a personal website using Hugo and a professional resume using RenderCV. Integrated DevOps CI/CD workflows to automate content generation, builds, and deployment, maintaining a consistent source of truth across both platforms.
   - name: Smart Doorbell
     date: 2024-10
     tech: PCB Design, ESPHome, Home-Assistant
@@ -160,9 +157,16 @@ projects:
     summary: A KiCad-designed smart doorbell PCB that utilizes the existing doorbell transformer to power the board, the doorbell button wiring to detect actions, and controls the chime.
   - name: Home Automation
     date: 2024-10
-    tech: ESPHome, Home-Assistant
+    tech: Docker, ESPHome, Home-Assistant
     link: null
-    summary: null
+    summary: A personal project integrating various IoT devices and developing automated workflows to simplify home management, improve convenience, and enhance everyday living.
+    resume: false
+  - name: Homelab
+    start_date: 2017-08
+    end_date: present
+    tech: Ansible, Docker, Linux, TalosOS (Kubernetes), Ubiquiti
+    link: https://github.com/atomicbeast101/homelab
+    summary: A personal data center for experimenting with enterprise hardware, self-hosted applications, and infrastructure automation. Powers projects ranging from cloud hosting and home automation to monitoring just about everything—because more data is always better.
 
 # Hobbies
 hobbies:
