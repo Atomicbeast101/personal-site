@@ -24,7 +24,9 @@ def main():
     ## Convert
     print('[INFO]: Generating ResumeCV format config...')
     ### General
+
     template['cv']['name'] = data['general']['name']
+    template['cv']['photo'] = 'qrcode.png'
     template['cv']['headline'] = data['general']['title']
     template['cv']['location'] = data['general']['location']
     template['cv']['email'] = data['general']['contact']['email']
@@ -55,25 +57,7 @@ def main():
             'label': skill['category'],
             'details': ', '.join([x['name'] for x in skill['list']])
         })
-    #### Experience
-    for experience in data['experiences']:
-        template['cv']['sections']['experience'].append({
-            'company': experience['company'],
-            'position': ', '.join(experience['roles']),
-            'date': experience['start'],
-            'end_date': experience['end'],
-            'location': experience['location'],
-            'highlights': experience['highlights']
-        })
-    #### Projects
-    for project in data['projects']:
-        template['cv']['sections']['projects'].append({
-            'name': project['name'],
-            'date': project['date'] if 'date' in project else None,
-            'start_date': project['start_date'] if 'start_date' in project else None,
-            'end_date': project['end_date'] if 'end_date' in project else None,
-            'summary': project['summary']
-        })
+    # TODO: Figure out how to get education to appear before experience, keys with same initial letter doesnt work well
     #### Education
     for education in data['education']:
         template['cv']['sections']['education'].append({
@@ -82,10 +66,35 @@ def main():
             'degree': education['level'],
             'end_date': education['graduated'] if 'graduated' in education else None
         })
+    #### Experience
+    for experience in data['experiences']:
+        template['cv']['sections']['experience'].append({
+            'company': experience['company'],
+            'position': ', '.join(experience['roles']),
+            'start_date': experience['start'],
+            'end_date': experience['end'],
+            'location': experience['location'],
+            'highlights': experience['highlights']
+        })
+    #### Projects
+    for project in data['projects']:
+        resume = True
+        if 'resume' in project:
+            resume = project['resume']
+
+        if resume:
+            template['cv']['sections']['projects'].append({
+                'name': project['name'],
+                'date': project['date'] if 'date' in project else None,
+                'start_date': project['start_date'] if 'start_date' in project else None,
+                'end_date': project['end_date'] if 'end_date' in project else None,
+                'summary': project['summary']
+            })
 
     ## Save converted file
     print(f'[INFO]: Saving generated content to {ARGS.destination}...')
-    yaml.safe_dump(template, stream=open(ARGS.destination, 'w'))
+    # yaml.safe_dump(template, stream=open(ARGS.destination, 'w'))
+    yaml.safe_dump(template, stream=open(ARGS.destination, 'w'), sort_keys=False)
 
     print('[INFO]: Done!')
 

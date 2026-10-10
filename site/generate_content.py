@@ -1,5 +1,6 @@
 # Imports
 import argparse
+import datetime
 import yaml
 import os
 
@@ -9,6 +10,13 @@ parser.add_argument('--source', type=str, help='Name of YAML file that contains 
 parser.add_argument('--destination', type=str, help='Path to save generated YAML file for Hugo to use.')
 
 # Main
+def convert_date(date):
+    if date == 'present':
+        return 'Present'
+    else:
+        cdate = datetime.datetime.strptime(date, "%Y-%m")
+        return cdate.strftime("%B %Y")
+
 def main():
     ARGS = parser.parse_args()
 
@@ -67,7 +75,7 @@ def main():
         to_add = {
             'company': experience['company'],
             'role': experience['roles'][0],
-            'period': f"{experience['start']} - {experience['end']}",
+            'period': f"{convert_date(experience['start'])} - {convert_date(experience['end'])}",
             'logo': f"/images/company/{str(experience['company']).lower().replace(' ', '_').replace(',', '')}.png",
             'description': None, # TODO
             'responsibilities': experience['highlights']
