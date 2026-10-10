@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Cleanup
-rm -rf .venv
-
-# Setup
-python3 -m venv .venv
-.venv/bin/pip install -r resume/requirements.txt
-.venv/bin/pip install -r site/requirements.txt
-
 # Generate resume
 .venv/bin/python resume/convert_to_cv.py --source config.yml --template resume/template.yml --destination resume/generated.yml
 .venv/bin/rendercv render resume/generated.yml --pdf-path resume.pdf
