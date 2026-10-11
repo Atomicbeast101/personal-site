@@ -143,7 +143,7 @@ projects:
     start: 2026-06
     end_date: present
     tech: IoT Monitoring, ESPHome, Home-Assistant
-    link: null
+    link: https://github.com/atomicbeast101/hydroponics
     summary: Designed and built a 3D-printed hydroponics tower for growing edible plants, integrating ESPHome-based automation to control grow lights, water pumps, and ventilation fans. Implemented sensor monitoring for temperature, CO₂, pH, and total dissolved solids (TDS) to support plant health and optimize growing conditions.
   - name: Personal Site
     date: 2026-10
